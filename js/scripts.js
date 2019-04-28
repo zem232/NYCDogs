@@ -65,13 +65,19 @@ map.addLayer({
 
     if (zipc) {
     //console.log(lot.properties.address);
-    $('#address').text('Zip Code: ' + zipc.properties.ZIPCODE);
-    $('#landuse').text(zipc.properties.PO_NAME);
-    console.log(zipc.properties.ZIPCODE, typeof zipc.properties.ZIPCODE);
-    console.log(DogData.length, typeof DogData[0].zipcode.toString());
+    $('#zipcode').text('Zip Code: ' + zipc.properties.ZIPCODE);
+    $('#zipname').text(zipc.properties.PO_NAME);
+    console.log(zipc.properties.ZIPCODE, parseInt(zipc.properties.ZIPCODE));
+    console.log(parseInt(DogData[0].zipcode));
+    if (DogData[0].zipcode == parseInt(zipc.properties.ZIPCODE)) {
+      console.log('equal');
+    };
+
     DogData.forEach(function(item) {
-      if (item.zipcode.toString() === zipc.properties.ZIPCODE) {
-        $('#Dogdata').text(', Total Dogs: '+ item.Total);
+    if (item.zipcode == parseInt(zipc.properties.ZIPCODE)) {
+        $('#Dogcount').text('Total Dogs: '+ item.Total);
+        $('#Dogbreed').text('Popular Breed: '+ item.breedname);
+        $('#Dogname').text('Popular Name: '+ item.animalname);
     }
     });
   };
