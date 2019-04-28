@@ -68,9 +68,9 @@ map.addLayer({
     $('#address').text('Zip Code: ' + zipc.properties.ZIPCODE);
     $('#landuse').text(zipc.properties.PO_NAME);
     console.log(zipc.properties.ZIPCODE, typeof zipc.properties.ZIPCODE);
-    console.log(DogData.length, typeof DogData[0].zipcode);
+    console.log(DogData.length, typeof DogData[0].zipcode.toString());
     DogData.forEach(function(item) {
-      if (item.zipcode === parseInt(zipc.properties.ZIPCODE)) {
+      if (item.zipcode.toString() === zipc.properties.ZIPCODE) {
         $('#Dogdata').text(', Total Dogs: '+ item.Total);
     }
     });
